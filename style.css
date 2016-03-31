@@ -14,6 +14,16 @@ body {
   padding-bottom: 6em;
 }
 
+label {
+  padding: 0.5em;
+}
+
+.radio {
+  margin: 0 auto;
+  box-shadow: none;
+  width: 3em;
+}
+
 .banner {
   width: 100%;
 }
@@ -55,9 +65,16 @@ td {
   padding: 3em 0;
 }
 
-h3 {
+h3,
+h4 {
   text-align: left;
+  padding: 2em 0 1em 0;
   margin-left: 3em;
+}
+
+h4 {
+  text-align: center;
+  margin: 0 auto;
 }
 
 input {
