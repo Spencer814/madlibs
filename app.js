@@ -23,15 +23,9 @@ app.controller('myCtrl', function($scope) {
     $scope.pnounthree,
     $scope.number,
 
-    $scope.genders = [{Id: 1, Descr:'Male'}, {Id:2, Descr:'Female'}];
-    $scope.relatives = [{Id: 1, Descr:'Uncle'}, {Id:2, Descr:'Aunt'}];
-    $scope.pronoun = [{Id: 1, Descr:'he'}, {Id:2, Descr:'she'}];
-
-
+    $scope.genders = [{Id: 1, Descr:'Male', Fam:'Uncle', Pro:'he', Role:'goddesses'}, {Id:2, Descr:'Female', Fam:'Aunt', Pro:'she', Role:'gods'}];
     $scope.user = {};
     $scope.user.FormData = {};
     $scope.user.Gender = $scope.genders[1];
-    $scope.user.Relative = $scope.relatives[1];
-    $scope.user.Pronoun = $scope.pronoun[1];
 
 });

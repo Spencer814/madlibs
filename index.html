@@ -19,7 +19,7 @@
           <input type="text" placeholder="adjective" ng-model="adjective_one">
           <input type="text" placeholder="noun" ng-model="noun_one">
           <input type="text" placeholder="plural noun" ng-model="pnoun">
-          <input type="text" placeholder="{{user.Gender.Descr}}" ng-model="name">
+          <input type="text" placeholder="{{user.Gender.Descr}} name" ng-model="name">
           <input type="text" placeholder="adjective" ng-model="adjective_two">
           <input type="text" placeholder="clothing" ng-model="clothing">
           <input type="text" placeholder="noun" ng-model="noun_two">
@@ -27,7 +27,7 @@
           <input type="text" placeholder="plural noun" ng-model="pnountwo">
           <input type="text" placeholder="adjective" ng-model="adjective_three">
           <input type="text" placeholder="body part" ng-model="partone">
-          <input type="text" placeholder="letter of the alphabet" ng-model="letter">
+          <input type="text" placeholder="alphabet letter" ng-model="letter">
           <input type="text" placeholder="lifestyle" ng-model="lifestyle">
           <input type="text" placeholder="adjective" ng-model="adjective_four">
           <input type="text" placeholder="location" ng-model="location">
@@ -49,7 +49,7 @@
       <div class="story">
         <p>There are many <strong>{{adjective_one}}</strong> ways to choose a/an <strong>{{noun_one}}</strong> to read.
         First, you could ask for recommendations from your friends and <strong>{{pnoun}}</strong>.
-        Just don't ask {{relative}} <strong class="cap">{{name}}</strong> - {{pronoun}} only reads <strong>{{adjective_two}}</strong> books with <strong>{{clothing}}</strong>-ripping goddesses on the cover.
+        Just don't ask {{user.Gender.Fam}} <strong class="cap">{{name}}</strong> - {{user.Gender.Pro}} only reads <strong>{{adjective_two}}</strong> books with <strong>{{clothing}}</strong>-ripping {{user.Gender.Role}} on the cover.
         If your friends and family are no help, try checking out the <strong class="cap">{{noun_two}}</strong> Review in <em>The <strong class="cap">{{city}}</strong> Times</em>.</p>
         <p>If the <strong>{{pnountwo}}</strong> featured there are too <strong>{{adjective_three}}</strong> for your taste, try something a little more low-<strong>{{partone}}</strong>, like <em><strong class="cap">{{letter}}</strong>: The <strong class="cap">{{lifestyle}}</strong> Magazine</em>.
         You could also choose a book the <strong>{{adjective_four}}</strong>-fashioned way. Head to your local library or <strong>{{location}}</strong> and browse the shelves until something catches your <strong>{{parttwo}}</strong>.
