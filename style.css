@@ -4,7 +4,7 @@ body {
 
 .madlibs {
   border: 2px solid #1a0000;
-  margin: 1em 2em 4em 2em;
+  margin: 1em 2em 10em 2em;
   background-color: #ffffff;
 }
 
@@ -63,6 +63,10 @@ td {
 
 .inputs {
   padding: 3em 0;
+}
+
+.low {
+  text-transform: lowercase;
 }
 
 .words {

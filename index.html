@@ -20,7 +20,7 @@
             <input type="text" placeholder="adjective" ng-model="adjective_one">
             <input type="text" placeholder="noun" ng-model="noun_one">
             <input type="text" placeholder="plural noun" ng-model="pnoun">
-            <input type="text" placeholder="{{user.Gender.Descr}} name" ng-model="name">
+            <input type="text" placeholder="{{user.Gender.Descr}} name" ng-model="name" class="low">
             <input type="text" placeholder="adjective" ng-model="adjective_two">
             <input type="text" placeholder="clothing" ng-model="clothing">
             <input type="text" placeholder="noun" ng-model="noun_two">
@@ -38,7 +38,7 @@
             <input type="text" placeholder="adjective" ng-model="adjective_six">
             <input type="text" placeholder="verb" ng-model="verb">
             <input type="text" placeholder="plural noun" ng-model="pnounthree">
-            <input type="text" placeholder="number" ng-model="number">
+            <input type="number" min="1" placeholder="number" ng-model="number">
           </div>
           <h4>Gender:
             <label class="dot" ng-repeat="gender in genders">
