@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="">
+<html lang="en">
   <head>
     <link rel="stylesheet" type="text/css" href="style.css">
     <title>Mad Libs</title>
   </head>
 
   <body>
-    <div class="madlibs">
+    <div class="madlibs" ng-app="myApp" ng-controller="myCtrl">
       <div class="top">
         <table class="banner">
           <tr>
@@ -14,38 +14,42 @@
             <td class="nglogo"><img src="logo.png"><h1>Automate This!</h1></td>
           </tr>
         </table>
-        <div class="inputs" ng-init="adjective_one; noun_one; pnoun; female; adjective_two; clothing;
-        noun_two; city; pnountwo; adjective_three; partone; letter; lifestye; adjective_four; location;
-        parttwo; adjective_five; animal; adjective_six; verb; pnounthree; number;">
-          <h3>Provide the following words:</h3>
-          <input name="adjective_one" placeholder="adjective" ng-model="adjective_one" required>
-          <input name="noun_one" placeholder="noun" ng-model="noun_one" required>
-          <input name="pnoun" placeholder="plural noun" ng-model="pnoun" required>
-          <input name="female" placeholder="female name" ng-model="female" required>
-          <input name="adjective_two" placeholder="adjective" ng-model="adjective_two" required>
-          <input name="clothing" placeholder="clothing" ng-model="clothing" required>
-          <input name="noun_two" placeholder="noun" ng-model="noun_two" required>
-          <input name="city" placeholder="city" ng-model="city" require>
-          <input name="pnountwo" placeholder="plural noun" ng-model="pnountwo" required>
-          <input name="adjective_three" placeholder="adjective" ng-model="adjective_three" required>
-          <input name="partone" placeholder="body part" ng-model="partone" required>
-          <input name="letter" placeholder="letter of the alphabet" ng-model="letter" required>
-          <input name="lifestyle" placeholder="lifestyle" ng-model="lifestyle" required>
-          <input name="adjective_four" placeholder="adjective" ng-model="adjective_four" required>
-          <input name="location" placeholder="location" ng-model="location" required>
-          <input name="parttwo" placeholder="body part" ng-model="parttwo" required>
-          <input name="adjective_five" placeholder="adjective" ng-model="adjective_five" required>
-          <input name="animal" placeholder="animal" ng-model="animal" required>
-          <input name="adjective_six" placeholder="adjective" ng-model="adjective_six" required>
-          <input name="verb" placeholder="verb" ng-model="verb" required>
-          <input name="pnounthree" placeholder="plural noun" ng-model="pnounthree" required>
-          <input name="number" placeholder="number" ng-model="number" required>
+        <div class="inputs">
+          <h3>Provide the following words: </h3>
+          <input type="text" placeholder="adjective" ng-model="adjective_one">
+          <input type="text" placeholder="noun" ng-model="noun_one">
+          <input type="text" placeholder="plural noun" ng-model="pnoun">
+          <input type="text" placeholder="{{user.Gender.Descr}} name" ng-model="name">
+          <input type="text" placeholder="adjective" ng-model="adjective_two">
+          <input type="text" placeholder="clothing" ng-model="clothing">
+          <input type="text" placeholder="noun" ng-model="noun_two">
+          <input type="text" placeholder="city" ng-model="city">
+          <input type="text" placeholder="plural noun" ng-model="pnountwo">
+          <input type="text" placeholder="adjective" ng-model="adjective_three">
+          <input type="text" placeholder="body part" ng-model="partone">
+          <input type="text" placeholder="alphabet letter" ng-model="letter">
+          <input type="text" placeholder="lifestyle" ng-model="lifestyle">
+          <input type="text" placeholder="adjective" ng-model="adjective_four">
+          <input type="text" placeholder="location" ng-model="location">
+          <input type="text" placeholder="body part" ng-model="parttwo">
+          <input type="text" placeholder="adjective" ng-model="adjective_five">
+          <input type="text" placeholder="animal" ng-model="animal">
+          <input type="text" placeholder="adjective" ng-model="adjective_six">
+          <input type="text" placeholder="verb" ng-model="verb">
+          <input type="text" placeholder="plural noun" ng-model="pnounthree">
+          <input type="text" placeholder="number" ng-model="number">
+          <h4>Gender:
+            <label class="dot" ng-repeat="gender in genders">
+              <input class="radio" type="radio" name="gender" ng-value="gender" ng-model="user.Gender">{{gender.Descr}}
+            </label>
+          </h4>
+          <h4>{{user.Gender.Descr}}</h4>
         </div>
       </div>
       <div class="story">
         <p>There are many <strong>{{adjective_one}}</strong> ways to choose a/an <strong>{{noun_one}}</strong> to read.
         First, you could ask for recommendations from your friends and <strong>{{pnoun}}</strong>.
-        Just don't ask Aunt <strong class="cap">{{female}}</strong> - she only reads <strong>{{adjective_two}}</strong> books with <strong>{{clothing}}</strong>-ripping goddesses on the cover.
+        Just don't ask {{user.Gender.Fam}} <strong class="cap">{{name}}</strong> - {{user.Gender.Pro}} only reads <strong>{{adjective_two}}</strong> books with <strong>{{clothing}}</strong>-ripping {{user.Gender.Role}} on the cover.
         If your friends and family are no help, try checking out the <strong class="cap">{{noun_two}}</strong> Review in <em>The <strong class="cap">{{city}}</strong> Times</em>.</p>
         <p>If the <strong>{{pnountwo}}</strong> featured there are too <strong>{{adjective_three}}</strong> for your taste, try something a little more low-<strong>{{partone}}</strong>, like <em><strong class="cap">{{letter}}</strong>: The <strong class="cap">{{lifestyle}}</strong> Magazine</em>.
         You could also choose a book the <strong>{{adjective_four}}</strong>-fashioned way. Head to your local library or <strong>{{location}}</strong> and browse the shelves until something catches your <strong>{{parttwo}}</strong>.
@@ -54,6 +58,7 @@
       </div>
     </div>
     <script data-require="angular.js@1.3.10" data-semver="1.3.10" src="https://code.angularjs.org/1.3.10/angular.js"></script>
+    <script src="app.js"></script>
   </body>
 
 </html>
