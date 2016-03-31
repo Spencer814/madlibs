@@ -16,28 +16,30 @@
         </table>
         <div class="inputs">
           <h3>Provide the following words: </h3>
-          <input type="text" placeholder="adjective" ng-model="adjective_one">
-          <input type="text" placeholder="noun" ng-model="noun_one">
-          <input type="text" placeholder="plural noun" ng-model="pnoun">
-          <input type="text" placeholder="{{user.Gender.Descr}} name" ng-model="name">
-          <input type="text" placeholder="adjective" ng-model="adjective_two">
-          <input type="text" placeholder="clothing" ng-model="clothing">
-          <input type="text" placeholder="noun" ng-model="noun_two">
-          <input type="text" placeholder="city" ng-model="city">
-          <input type="text" placeholder="plural noun" ng-model="pnountwo">
-          <input type="text" placeholder="adjective" ng-model="adjective_three">
-          <input type="text" placeholder="body part" ng-model="partone">
-          <input type="text" placeholder="alphabet letter" ng-model="letter">
-          <input type="text" placeholder="lifestyle" ng-model="lifestyle">
-          <input type="text" placeholder="adjective" ng-model="adjective_four">
-          <input type="text" placeholder="location" ng-model="location">
-          <input type="text" placeholder="body part" ng-model="parttwo">
-          <input type="text" placeholder="adjective" ng-model="adjective_five">
-          <input type="text" placeholder="animal" ng-model="animal">
-          <input type="text" placeholder="adjective" ng-model="adjective_six">
-          <input type="text" placeholder="verb" ng-model="verb">
-          <input type="text" placeholder="plural noun" ng-model="pnounthree">
-          <input type="text" placeholder="number" ng-model="number">
+          <div class="words">
+            <input type="text" placeholder="adjective" ng-model="adjective_one">
+            <input type="text" placeholder="noun" ng-model="noun_one">
+            <input type="text" placeholder="plural noun" ng-model="pnoun">
+            <input type="text" placeholder="{{user.Gender.Descr}} name" ng-model="name">
+            <input type="text" placeholder="adjective" ng-model="adjective_two">
+            <input type="text" placeholder="clothing" ng-model="clothing">
+            <input type="text" placeholder="noun" ng-model="noun_two">
+            <input type="text" placeholder="city" ng-model="city">
+            <input type="text" placeholder="plural noun" ng-model="pnountwo">
+            <input type="text" placeholder="adjective" ng-model="adjective_three">
+            <input type="text" placeholder="body part" ng-model="partone">
+            <input type="text" placeholder="alphabet letter" ng-model="letter">
+            <input type="text" placeholder="lifestyle" ng-model="lifestyle">
+            <input type="text" placeholder="adjective" ng-model="adjective_four">
+            <input type="text" placeholder="location" ng-model="location">
+            <input type="text" placeholder="body part" ng-model="parttwo">
+            <input type="text" placeholder="adjective" ng-model="adjective_five">
+            <input type="text" placeholder="animal" ng-model="animal">
+            <input type="text" placeholder="adjective" ng-model="adjective_six">
+            <input type="text" placeholder="verb" ng-model="verb">
+            <input type="text" placeholder="plural noun" ng-model="pnounthree">
+            <input type="text" placeholder="number" ng-model="number">
+          </div>
           <h4>Gender:
             <label class="dot" ng-repeat="gender in genders">
               <input class="radio" type="radio" name="gender" ng-value="gender" ng-model="user.Gender">{{gender.Descr}}

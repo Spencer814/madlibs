@@ -65,6 +65,11 @@ td {
   padding: 3em 0;
 }
 
+.words {
+  width: 80%;
+  margin: 0 auto;
+}
+
 h3,
 h4 {
   text-align: left;
