@@ -10,8 +10,6 @@ body {
 
 .top {
   text-align: center;
-  border-bottom: 2px solid #1a0000;
-  padding-bottom: 6em;
 }
 
 label {
@@ -65,10 +63,6 @@ td {
   padding: 3em 0;
 }
 
-.low {
-  text-transform: lowercase;
-}
-
 .words {
   width: 80%;
   margin: 0 auto;
@@ -102,7 +96,6 @@ p {
 }
 
 .story {
-  padding: 1em 0 4em 0;
   margin: 4em auto;
 }
 
@@ -121,4 +114,18 @@ strong {
 
 a {
   text-shadow: 1px 1px #008080;
+}
+
+button {
+  margin-bottom: 3em;
+}
+
+.button {
+  margin: 3em;
+  text-align: center;
+}
+
+.error {
+  color: #ff0000;
+  font-weight: bold;
 }

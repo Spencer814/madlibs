@@ -1,3 +1,7 @@
+var myNewModule = angular.module('myNewModule', [
+    'ngMessages'
+]);
+
 var app = angular.module('myApp', []);
 app.controller('myCtrl', function($scope) {
     $scope.adjective_one,
@@ -27,5 +31,21 @@ app.controller('myCtrl', function($scope) {
     $scope.user = {};
     $scope.user.FormData = {};
     $scope.user.Gender = $scope.genders[1];
+
+    $scope.generate = function() {
+        if ($scope.myForm.$submitted && $scope.myForm.$valid && !($scope.myForm.$pristine)) {
+            $scope.hide = true;
+            return true;
+        }
+    };
+
+    $scope.hide = false;
+
+    $scope.reset = function() {
+        $scope.hide = false;
+        $scope.submitted = false;
+        $scope.info = {};
+        $scope.myForm.$setPristine();
+    }
 
 });

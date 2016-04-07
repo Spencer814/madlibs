@@ -14,41 +14,49 @@
             <td class="nglogo"><img src="logo.png"><h1>Automate This!</h1></td>
           </tr>
         </table>
-        <div class="inputs">
-          <h3>Provide the following words: </h3>
+        <div class="inputs" ng-hide="hide">
+          <h3>Provide the following information: </h3>
           <div class="words">
-            <input type="text" placeholder="adjective" ng-model="adjective_one">
-            <input type="text" placeholder="noun" ng-model="noun_one">
-            <input type="text" placeholder="plural noun" ng-model="pnoun">
-            <input type="text" placeholder="{{user.Gender.Descr}} name" ng-model="name" class="low">
-            <input type="text" placeholder="adjective" ng-model="adjective_two">
-            <input type="text" placeholder="clothing" ng-model="clothing">
-            <input type="text" placeholder="noun" ng-model="noun_two">
-            <input type="text" placeholder="city" ng-model="city">
-            <input type="text" placeholder="plural noun" ng-model="pnountwo">
-            <input type="text" placeholder="adjective" ng-model="adjective_three">
-            <input type="text" placeholder="body part" ng-model="partone">
-            <input type="text" placeholder="alphabet letter" ng-model="letter">
-            <input type="text" placeholder="lifestyle" ng-model="lifestyle">
-            <input type="text" placeholder="adjective" ng-model="adjective_four">
-            <input type="text" placeholder="location" ng-model="location">
-            <input type="text" placeholder="body part" ng-model="parttwo">
-            <input type="text" placeholder="adjective" ng-model="adjective_five">
-            <input type="text" placeholder="animal" ng-model="animal">
-            <input type="text" placeholder="adjective" ng-model="adjective_six">
-            <input type="text" placeholder="verb" ng-model="verb">
-            <input type="text" placeholder="plural noun" ng-model="pnounthree">
-            <input type="number" min="1" placeholder="number" ng-model="number">
+            <form name="myForm" novalidate ng-submit="generate()">
+              <input type="text" placeholder="adjective" ng-model="adjective_one" required>
+              <input type="text" placeholder="noun" ng-model="noun_one" required>
+              <input type="text" placeholder="plural noun" ng-model="pnoun" required>
+              <input type="text" placeholder="{{user.Gender.Descr}} name" ng-model="name" required>
+              <input type="text" placeholder="adjective" ng-model="adjective_two" required>
+              <input type="text" placeholder="clothing" ng-model="clothing" required>
+              <input type="text" placeholder="noun" ng-model="noun_two" required>
+              <input type="text" placeholder="city" ng-model="city" required>
+              <input type="text" placeholder="plural noun" ng-model="pnountwo" required>
+              <input type="text" placeholder="adjective" ng-model="adjective_three" required>
+              <input type="text" placeholder="body part" ng-model="partone" required>
+              <input type="text" placeholder="letter" ng-model="letter" required>
+              <input type="text" placeholder="lifestyle" ng-model="lifestyle" required>
+              <input type="text" placeholder="adjective" ng-model="adjective_four" required>
+              <input type="text" placeholder="location" ng-model="location" required>
+              <input type="text" placeholder="body part" ng-model="parttwo" required>
+              <input type="text" placeholder="adjective" ng-model="adjective_five" required>
+              <input type="text" placeholder="animal" ng-model="animal" required>
+              <input type="text" placeholder="adjective" ng-model="adjective_six" required>
+              <input type="text" placeholder="verb" ng-model="verb" required>
+              <input type="text" placeholder="plural noun" ng-model="pnounthree" required>
+              <input type="number" min="1" placeholder="number" ng-model="number" required>
+              <h4>Gender:
+                <label class="dot" ng-repeat="gender in genders">
+                  <input class="radio" type="radio" name="gender" ng-value="gender" ng-model="user.Gender">{{gender.Descr}}
+                </label>
+              </h4>
+              <h4>{{user.Gender.Descr}}</h4>
+              <button type="submit" name="myForm">Generate My Mad Lib</button>
+            </form>
           </div>
-          <h4>Gender:
-            <label class="dot" ng-repeat="gender in genders">
-              <input class="radio" type="radio" name="gender" ng-value="gender" ng-model="user.Gender">{{gender.Descr}}
-            </label>
-          </h4>
-          <h4>{{user.Gender.Descr}}</h4>
+
+          <div ng-if="myForm.$submitted" ng-messages="myForm.entry.$error">
+              <span class="error" ng-message="required">Please provide the missing information!</span>
+          </div>
+
         </div>
       </div>
-      <div class="story">
+      <div class="story" ng-show="hide">
         <p>There are many <strong>{{adjective_one}}</strong> ways to choose a/an <strong>{{noun_one}}</strong> to read.
         First, you could ask for recommendations from your friends and <strong>{{pnoun}}</strong>.
         Just don't ask {{user.Gender.Fam}} <strong class="cap">{{name}}</strong> - {{user.Gender.Pro}} only reads <strong>{{adjective_two}}</strong> books with <strong>{{clothing}}</strong>-ripping {{user.Gender.Role}} on the cover.
@@ -57,6 +65,9 @@
         You could also choose a book the <strong>{{adjective_four}}</strong>-fashioned way. Head to your local library or <strong>{{location}}</strong> and browse the shelves until something catches your <strong>{{parttwo}}</strong>.
         Or, you could save yourself a whole lof of <strong>{{adjective_five}}</strong> trouble and log on to <strong><a href="http://andrenewman.com/" target="_blank"><em>www.{{animal}}.com</em></a></strong>, the <strong>{{adjective_six}}</strong> new website to <strong>{{verb}}</strong> for books!
         With all the time you'll save not having to search for <strong>{{pnounthree}}</strong>, you can read <strong>{{number}}</strong> more books!</p>
+        <section class="button">
+          <button name="reset" type="button" ng-click="reset()">New Mad Lib</button>
+        </section>
       </div>
     </div>
     <script data-require="angular.js@1.3.10" data-semver="1.3.10" src="https://code.angularjs.org/1.3.10/angular.js"></script>
