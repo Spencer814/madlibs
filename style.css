@@ -129,3 +129,101 @@ button {
   color: #ff0000;
   font-weight: bold;
 }
+
+.animate-hide {
+  -webkit-animation-delay:2.5s;
+  -moz-animation-delay:2.5s;
+  -o-animation-delay:2.5s;
+  -ms-animation-delay:2.5s;
+  animation-delay:2.5s;
+  -webkit-animation: fadeOut 2.5s;
+  -moz-animation: fadeOut 2.5s;
+  -o-animation: fadeOut 2.5s;
+  -ms-animation: fadeOut 2.5s;
+  animation: fadeOut 2.5s;
+}
+
+@-webkit-keyframes fadeOut {
+  0% { opacity: 1; }
+  25% { opacity: 0.75; }
+  50% { opacity: 0.5; }
+  75% { opacity: 0.25; }
+  100% { opacity: 0; }
+}
+@-moz-keyframes fadeOut {
+  0% { opacity: 1; }
+  25% { opacity: 0.75; }
+  50% { opacity: 0.5; }
+  75% { opacity: 0.25; }
+  100% { opacity: 0; }
+}
+@-ms-keyframes fadeOut {
+  0% { opacity: 1; }
+  25% { opacity: 0.75; }
+  50% { opacity: 0.5; }
+  75% { opacity: 0.25; }
+  100% { opacity: 0; }
+}
+@-o-keyframes fadeOut {
+  0% { opacity: 1; }
+  25% { opacity: 0.75; }
+  50% { opacity: 0.5; }
+  75% { opacity: 0.25; }
+  100% { opacity: 0; }
+}
+@keyframes fadeOut {
+  0% { opacity: 1; }
+  25% { opacity: 0.75; }
+  50% { opacity: 0.5; }
+  75% { opacity: 0.25; }
+  100% { opacity: 0; }
+}
+
+.animate-show {
+  -webkit-animation-delay:2.5s;
+  -moz-animation-delay:2.5s;
+  -o-animation-delay:2.5s;
+  -ms-animation-delay:2.5s;
+  animation-delay:2.5s;
+  -webkit-animation: fadeIn 2.5s;
+  -moz-animation: fadeIn 2.5s;
+  -o-animation: fadeIn 2.5s;
+  -ms-animation: fadeIn 2.5s;
+  animation: fadeIn 2.5s;
+}
+
+@-webkit-keyframes fadeIn {
+  0% { opacity: 0; }
+  25% { opacity: 0.25; }
+  50% { opacity: 0.5; }
+  75% { opacity: 0.75; }
+  100% { opacity: 1; }
+}
+@-moz-keyframes fadeIn {
+  0% { opacity: 0; }
+  25% { opacity: 0.25; }
+  50% { opacity: 0.5; }
+  75% { opacity: 0.75; }
+  100% { opacity: 1; }
+}
+@-ms-keyframes fadeIn {
+  0% { opacity: 0; }
+  25% { opacity: 0.25; }
+  50% { opacity: 0.5; }
+  75% { opacity: 0.75; }
+  100% { opacity: 1; }
+}
+@-o-keyframes fadeIn {
+  0% { opacity: 0; }
+  25% { opacity: 0.25; }
+  50% { opacity: 0.5; }
+  75% { opacity: 0.75; }
+  100% { opacity: 1; }
+}
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  25% { opacity: 0.25; }
+  50% { opacity: 0.5; }
+  75% { opacity: 0.75; }
+  100% { opacity: 1; }
+}
