@@ -14,7 +14,7 @@
             <td class="nglogo"><img src="logo.png"><h1>Automate This!</h1></td>
           </tr>
         </table>
-        <div class="inputs" ng-hide="hide">
+        <div class="inputs animate-show animate-hide" ng-hide="hide" ng-show="!hide">
           <h3>Provide the following information: </h3>
           <div class="words">
             <form name="myForm" novalidate ng-submit="generate()">
@@ -45,33 +45,32 @@
                   <input class="radio" type="radio" name="gender" ng-value="gender" ng-model="user.Gender">{{gender.Descr}}
                 </label>
               </h4>
-              <h4>{{user.Gender.Descr}}</h4>
-              <button type="submit" name="myForm">Generate My Mad Lib</button>
+              <h4 ng-cloak>{{user.Gender.Descr}}</h4>
+              <button type="submit" name="myForm" ng-model="hide">Generate My Mad Lib</button>
+              <div ng-if="myForm.$submitted" ng-messages="myForm.entry.$error">
+                  <span class="error" ng-message="required">Please provide the missing information!</span>
+              </div>
             </form>
           </div>
-
-          <div ng-if="myForm.$submitted" ng-messages="myForm.entry.$error">
-              <span class="error" ng-message="required">Please provide the missing information!</span>
-          </div>
-
+        </div>
+        <div class="story animate-show animate-hide" ng-show="hide" ng-hide="!hide">
+          <p>There are many <strong>{{adjective_one}}</strong> ways to choose a/an <strong>{{noun_one}}</strong> to read.
+          First, you could ask for recommendations from your friends and <strong>{{pnoun}}</strong>.
+          Just don't ask {{user.Gender.Fam}} <strong class="cap">{{name}}</strong> - {{user.Gender.Pro}} only reads <strong>{{adjective_two}}</strong> books with <strong>{{clothing}}</strong>-ripping {{user.Gender.Role}} on the cover.
+          If your friends and family are no help, try checking out the <strong class="cap">{{noun_two}}</strong> Review in <em>The <strong class="cap">{{city}}</strong> Times</em>.</p>
+          <p>If the <strong>{{pnountwo}}</strong> featured there are too <strong>{{adjective_three}}</strong> for your taste, try something a little more low-<strong>{{partone}}</strong>, like <em><strong class="cap">{{letter}}</strong>: The <strong class="cap">{{lifestyle}}</strong> Magazine</em>.
+          You could also choose a book the <strong>{{adjective_four}}</strong>-fashioned way. Head to your local library or <strong>{{location}}</strong> and browse the shelves until something catches your <strong>{{parttwo}}</strong>.
+          Or, you could save yourself a whole lof of <strong>{{adjective_five}}</strong> trouble and log on to <strong><a href="http://andrenewman.com/" target="_blank"><em>www.{{animal}}.com</em></a></strong>, the <strong>{{adjective_six}}</strong> new website to <strong>{{verb}}</strong> for books!
+          With all the time you'll save not having to search for <strong>{{pnounthree}}</strong>, you can read <strong>{{number}}</strong> more books!</p>
+          <section class="button">
+            <button name="reset" type="button" ng-click="reset()">New Mad Lib</button>
+          </section>
         </div>
       </div>
-      <div class="story" ng-show="hide">
-        <p>There are many <strong>{{adjective_one}}</strong> ways to choose a/an <strong>{{noun_one}}</strong> to read.
-        First, you could ask for recommendations from your friends and <strong>{{pnoun}}</strong>.
-        Just don't ask {{user.Gender.Fam}} <strong class="cap">{{name}}</strong> - {{user.Gender.Pro}} only reads <strong>{{adjective_two}}</strong> books with <strong>{{clothing}}</strong>-ripping {{user.Gender.Role}} on the cover.
-        If your friends and family are no help, try checking out the <strong class="cap">{{noun_two}}</strong> Review in <em>The <strong class="cap">{{city}}</strong> Times</em>.</p>
-        <p>If the <strong>{{pnountwo}}</strong> featured there are too <strong>{{adjective_three}}</strong> for your taste, try something a little more low-<strong>{{partone}}</strong>, like <em><strong class="cap">{{letter}}</strong>: The <strong class="cap">{{lifestyle}}</strong> Magazine</em>.
-        You could also choose a book the <strong>{{adjective_four}}</strong>-fashioned way. Head to your local library or <strong>{{location}}</strong> and browse the shelves until something catches your <strong>{{parttwo}}</strong>.
-        Or, you could save yourself a whole lof of <strong>{{adjective_five}}</strong> trouble and log on to <strong><a href="http://andrenewman.com/" target="_blank"><em>www.{{animal}}.com</em></a></strong>, the <strong>{{adjective_six}}</strong> new website to <strong>{{verb}}</strong> for books!
-        With all the time you'll save not having to search for <strong>{{pnounthree}}</strong>, you can read <strong>{{number}}</strong> more books!</p>
-        <section class="button">
-          <button name="reset" type="button" ng-click="reset()">New Mad Lib</button>
-        </section>
-      </div>
     </div>
-    <script data-require="angular.js@1.3.10" data-semver="1.3.10" src="https://code.angularjs.org/1.3.10/angular.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-messages.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.min.js"></script>
     <script src="app.js"></script>
   </body>
-
 </html>

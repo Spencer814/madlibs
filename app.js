@@ -1,5 +1,5 @@
 var myNewModule = angular.module('myNewModule', [
-    'ngMessages'
+    'ngMessages', 'ngAnimate'
 ]);
 
 var app = angular.module('myApp', []);
