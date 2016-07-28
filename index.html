@@ -6,64 +6,64 @@
   </head>
 
   <body>
-    <div class="madlibs" ng-app="myApp" ng-controller="myCtrl">
+    <div class="madlibs" ng-app="madlibs" ng-controller="MainController as vm">
       <div class="top">
         <table class="banner">
           <tr>
-            <td class="image"><img src="smiley.png"></td>
-            <td class="nglogo"><img src="logo.png"><h1>Automate This!</h1></td>
+            <td class="image"><img src="img/smiley.png"></td>
+            <td class="nglogo"><img src="img/logo.png"><h1>Automate This!</h1></td>
           </tr>
         </table>
-        <div class="inputs animate-show animate-hide" ng-hide="hide" ng-show="!hide">
+        <div class="inputs animate-show animate-hide" ng-hide="vm.hide" ng-show="!vm.hide">
           <h3>Provide the following information: </h3>
           <div class="words">
-            <form name="myForm" novalidate ng-submit="generate()">
-              <input type="text" placeholder="adjective" ng-model="adjective_one" required>
-              <input type="text" placeholder="noun" ng-model="noun_one" required>
-              <input type="text" placeholder="plural noun" ng-model="pnoun" required>
-              <input type="text" placeholder="{{user.Gender.Descr}} name" ng-model="name" required>
-              <input type="text" placeholder="adjective" ng-model="adjective_two" required>
-              <input type="text" placeholder="clothing" ng-model="clothing" required>
-              <input type="text" placeholder="noun" ng-model="noun_two" required>
-              <input type="text" placeholder="city" ng-model="city" required>
-              <input type="text" placeholder="plural noun" ng-model="pnountwo" required>
-              <input type="text" placeholder="adjective" ng-model="adjective_three" required>
-              <input type="text" placeholder="body part" ng-model="partone" required>
-              <input type="text" placeholder="letter" ng-model="letter" required>
-              <input type="text" placeholder="lifestyle" ng-model="lifestyle" required>
-              <input type="text" placeholder="adjective" ng-model="adjective_four" required>
-              <input type="text" placeholder="location" ng-model="location" required>
-              <input type="text" placeholder="body part" ng-model="parttwo" required>
-              <input type="text" placeholder="adjective" ng-model="adjective_five" required>
-              <input type="text" placeholder="animal" ng-model="animal" required>
-              <input type="text" placeholder="adjective" ng-model="adjective_six" required>
-              <input type="text" placeholder="verb" ng-model="verb" required>
-              <input type="text" placeholder="plural noun" ng-model="pnounthree" required>
-              <input type="number" min="1" placeholder="number" ng-model="number" required>
+            <form name="myForm" novalidate ng-submit="vm.generate()">
+              <input type="text" placeholder="adjective" ng-model="vm.adjective_one" required>
+              <input type="text" placeholder="noun" ng-model="vm.noun_one" required>
+              <input type="text" placeholder="plural noun" ng-model="vm.pnoun" required>
+              <input type="text" placeholder="{{vm.user.Gender.Descr}} name" ng-model="vm.name" required>
+              <input type="text" placeholder="adjective" ng-model="vm.adjective_two" required>
+              <input type="text" placeholder="clothing" ng-model="vm.clothing" required>
+              <input type="text" placeholder="noun" ng-model="vm.noun_two" required>
+              <input type="text" placeholder="city" ng-model="vm.city" required>
+              <input type="text" placeholder="plural noun" ng-model="vm.pnountwo" required>
+              <input type="text" placeholder="adjective" ng-model="vm.adjective_three" required>
+              <input type="text" placeholder="body part" ng-model="vm.partone" required>
+              <input type="text" placeholder="letter" ng-model="vm.letter" required>
+              <input type="text" placeholder="lifestyle" ng-model="vm.lifestyle" required>
+              <input type="text" placeholder="adjective" ng-model="vm.adjective_four" required>
+              <input type="text" placeholder="location" ng-model="vm.location" required>
+              <input type="text" placeholder="body part" ng-model="vm.parttwo" required>
+              <input type="text" placeholder="adjective" ng-model="vm.adjective_five" required>
+              <input type="text" placeholder="animal" ng-model="vm.animal" required>
+              <input type="text" placeholder="adjective" ng-model="vm.adjective_six" required>
+              <input type="text" placeholder="verb" ng-model="vm.verb" required>
+              <input type="text" placeholder="plural noun" ng-model="vm.pnounthree" required>
+              <input type="number" min="1" placeholder="number" ng-model="vm.number" required>
               <h4>Gender:
-                <label class="dot" ng-repeat="gender in genders">
+                <label class="dot" ng-repeat="gender in vm.genders">
                   <input class="radio" type="radio" name="gender" ng-value="gender" ng-model="user.Gender">{{gender.Descr}}
                 </label>
               </h4>
-              <h4 ng-cloak>{{user.Gender.Descr}}</h4>
-              <button type="submit" name="myForm" ng-model="hide">Generate My Mad Lib</button>
-              <div ng-if="myForm.$submitted" ng-messages="myForm.entry.$error">
+              <h4 ng-cloak>{{vm.user.Gender.Descr}}</h4>
+              <button type="submit" name="myForm" ng-model="vm.hide">Generate My Mad Lib</button>
+              <div ng-if="myForm.$submitted" ng-messages="myForm.$error">
                   <span class="error" ng-message="required">Please provide the missing information!</span>
               </div>
             </form>
           </div>
         </div>
-        <div class="story animate-show animate-hide" ng-show="hide" ng-hide="!hide">
-          <p>There are many <strong>{{adjective_one}}</strong> ways to choose a/an <strong>{{noun_one}}</strong> to read.
-          First, you could ask for recommendations from your friends and <strong>{{pnoun}}</strong>.
-          Just don't ask {{user.Gender.Fam}} <strong class="cap">{{name}}</strong> - {{user.Gender.Pro}} only reads <strong>{{adjective_two}}</strong> books with <strong>{{clothing}}</strong>-ripping {{user.Gender.Role}} on the cover.
-          If your friends and family are no help, try checking out the <strong class="cap">{{noun_two}}</strong> Review in <em>The <strong class="cap">{{city}}</strong> Times</em>.</p>
-          <p>If the <strong>{{pnountwo}}</strong> featured there are too <strong>{{adjective_three}}</strong> for your taste, try something a little more low-<strong>{{partone}}</strong>, like <em><strong class="cap">{{letter}}</strong>: The <strong class="cap">{{lifestyle}}</strong> Magazine</em>.
-          You could also choose a book the <strong>{{adjective_four}}</strong>-fashioned way. Head to your local library or <strong>{{location}}</strong> and browse the shelves until something catches your <strong>{{parttwo}}</strong>.
-          Or, you could save yourself a whole lof of <strong>{{adjective_five}}</strong> trouble and log on to <strong><a href="http://andrenewman.com/" target="_blank"><em>www.{{animal}}.com</em></a></strong>, the <strong>{{adjective_six}}</strong> new website to <strong>{{verb}}</strong> for books!
-          With all the time you'll save not having to search for <strong>{{pnounthree}}</strong>, you can read <strong>{{number}}</strong> more books!</p>
+        <div class="story animate-show animate-hide" ng-show="vm.hide" ng-hide="!vm.hide">
+          <p>There are many <strong>{{vm.adjective_one}}</strong> ways to choose a/an <strong>{{vm.noun_one}}</strong> to read.
+          First, you could ask for recommendations from your friends and <strong>{{vm.pnoun}}</strong>.
+          Just don't ask {{vm.user.Gender.Fam}} <strong class="cap">{{vm.name}}</strong> - {{vm.user.Gender.Pro}} only reads <strong>{{vm.adjective_two}}</strong> books with <strong>{{vm.clothing}}</strong>-ripping {{vm.user.Gender.Role}} on the cover.
+          If your friends and family are no help, try checking out the <strong class="cap">{{vm.noun_two}}</strong> Review in <em>The <strong class="cap">{{vm.city}}</strong> Times</em>.</p>
+          <p>If the <strong>{{vm.pnountwo}}</strong> featured there are too <strong>{{vm.adjective_three}}</strong> for your taste, try something a little more low-<strong>{{vm.partone}}</strong>, like <em><strong class="cap">{{vm.letter}}</strong>: The <strong class="cap">{{vm.lifestyle}}</strong> Magazine</em>.
+          You could also choose a book the <strong>{{vm.adjective_four}}</strong>-fashioned way. Head to your local library or <strong>{{vm.location}}</strong> and browse the shelves until something catches your <strong>{{vm.parttwo}}</strong>.
+          Or, you could save yourself a whole lof of <strong>{{vm.adjective_five}}</strong> trouble and log on to <strong><a href="http://andrenewman.com/" target="_blank"><em>www.{{vm.animal}}.com</em></a></strong>, the <strong>{{vm.adjective_six}}</strong> new website to <strong>{{vm.verb}}</strong> for books!
+          With all the time you'll save not having to search for <strong>{{vm.pnounthree}}</strong>, you can read <strong>{{vm.number}}</strong> more books!</p>
           <section class="button">
-            <button name="reset" type="button" ng-click="reset()">New Mad Lib</button>
+            <button name="reset" type="button" ng-click="vm.reset()">New Mad Lib</button>
           </section>
         </div>
       </div>
@@ -71,6 +71,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-messages.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.min.js"></script>
-    <script src="app.js"></script>
+    <script src="madlibs.module.js"></script>
+    <script src="madlibs.controller.js"></script>
   </body>
 </html>
